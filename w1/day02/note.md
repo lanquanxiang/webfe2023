@@ -27,3 +27,27 @@
 # 4. 表格
 1. 语法 table >caption | tr > td(th)
 2. 作用？什么时候用？ 排版（很少），展示多行多列信息
+3. 重点
+	1. 表格语法（标签和重要的属性）
+	2. 表格合并
+	3. 表格结构标记 thead tbody tfoot（方便对多行进行处理）
+
+# 5. 表单（重点，考试第一个编程题）
+1. 作用？收集数据
+2. 语法？
+	```
+		<form action="处理数据的网址" method="get|post" enctype="MIME">
+			
+		</form>
+	```
+	扩展：MIME（标识资源类型） 一级媒体类型/二级类型
+		text 文本
+		video 视频
+		audio 音频
+		image 图像  image/jpg
+		application 应用
+		message 信息
+		multipart 多部分媒体
+	扩展：get和post的区别？（问答，面试）
+3. 构成：
+	1. 输入控件（重点）
