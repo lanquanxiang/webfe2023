@@ -57,3 +57,7 @@
 # 6.  fieldset和label标记
 1. 语法
 2. 作用：提高用户体验
+
+# 7. 页面框架（了解）
+1. iframe
+2. frameset
