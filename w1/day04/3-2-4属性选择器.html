@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			a{
+				color: black;
+				text-decoration: none;
+			}
+			a[href^="http"]{
+				color: red;
+			}
+			a[href^="https"]{
+				color: blue;
+			}
+			a[target="_blank"]{
+				text-decoration: underline;
+			}
+			a[href$="cn"]{
+				font-weight: bold;
+			}
+		</style>
+	</head>
+	<body>
+		<a href="http://i.chaoxing.com">HTTP链接</a>
+		<br>
+		<a href="https://www.pzhu.cn">HTTPS链接</a>
+		<br>
+		<a href="https://www.baidu.com">HTTPS链接</a>
+		<br>
+		<a href="http://i.chaoxing.com" target="_blank">HTTP链接</a>
+		<br>
+		<a href="https://www.pzhu.cn" target="_blank">HTTPS链接</a>
+		<br>
+	</body>
+</html>
