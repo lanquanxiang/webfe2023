@@ -37,3 +37,16 @@
 5. 群组选择器E,F 选中E或F
 6. 派生选择器E.F（class） 选中F，F必须满足E
 ## 3. 属性选择器
+1. [attribute=value]
+2. [attribute^=value]
+3. [attribute$=value]
+4. [attribute*=value]
+## 4. 伪元素（虚拟元素）选择器
+1. ::after
+2. ::before   属性 content:""  content:url()
+## 5. 伪类（特殊状态）选择器
+了解：
+	1. 超链接哪些状态是可以修改的？
+	2. 这些链接伪类的顺序（爱恨原则）
+1. :hover 悬停
+2. :empty
