@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>
+		</title>
+		<style>
+			div:first-child{
+				font-style: italic;
+			}
+			div:nth-child(2){
+				font-weight:900;
+			}
+			div:nth-child(3){
+				font-size: 50px;
+			}
+			div:nth-child(4){
+				font-family: "华文行楷";
+			}
+			div:nth-child(5){
+				/* 不建议使用复合属性：不确定属性值的个数；顺序要求 */
+				font: italic 900 50px "华文行楷";
+			}
+		</style>
+	</head>
+	<body>
+		<div>111你好</div>
+		<div>111你好</div>
+		<div>111你好</div>
+		<div>111你好</div>
+		<div>111你好</div>
+	</body>
+</html>
