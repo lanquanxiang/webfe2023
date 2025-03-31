@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 100px;
+				height: 100px;
+			}
+			div:first-child{
+				background-color: yellow;
+				 position: absolute;/* 让出文档空间，后续元素会自动向上 */
+			}
+			div:nth-child(2){
+				background-color: blue;
+				 z-index: 999;
+				 position: relative; /* 如果没有特殊定位，偏移量和堆叠顺序属性无效 */
+				 left: 50px;
+				 top: 50px;
+			}
+		</style>
+	</head>
+	<body>
+		<div></div>
+		<div></div>
+	</body>
+</html>
