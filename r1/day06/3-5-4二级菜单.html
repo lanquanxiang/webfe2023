@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		li{
+			list-style-type: none;
+		}
+		.first>li{
+			display: inline-block;
+			width: 150px;
+			position: relative;/*子绝父相*/
+		}
+		
+		.first ul{
+			display: none;
+			position: absolute;
+			left: 50px;
+		}	
+		.first>li:hover>ul{
+			display: block;
+			
+		}
+		
+		</style>
+	</head>
+	<body>
+		<ul class="first">
+			<li >一级菜单
+				<ul >
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+				</ul>
+			</li>
+			<li>一级菜单
+				<ul>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+				</ul>
+			</li>
+			<li>一级菜单
+				<ul>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+				</ul>
+			</li>
+		</ul>
+		
+	</body>
+</html>
