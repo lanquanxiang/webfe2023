@@ -45,3 +45,11 @@
 3. 背景图的重复方式
 4. 背景图的大小
 5. 背景图固定fixed（适用于长网页）
+6. 背景定位（精灵图）
+
+## 5. CSS列表
+1. 有序无序 ol[123 ABC]  ul 
+2. list-style-type
+## 6. 边框合并
+## 7. 鼠标样式
+cursor：pointer text default
