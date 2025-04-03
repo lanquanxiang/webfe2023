@@ -15,9 +15,29 @@
 			div:nth-child(n+2){
 				background-image: url(../../src/pointer.png);
 			}
+			div:nth-child(3){
+				background-repeat:repeat-x;
+			}
+			div:nth-child(4){
+				background-repeat:repeat-y;
+			}
+			div:nth-child(5){
+				background-repeat:no-repeat;
+			}
+			div:nth-child(6){   /* 背景 >= 盒子 */
+				background-size: cover; /* 放大背景图，让背景能够完全覆盖盒子，只能看见图的一部分 */
+			}
+			div:nth-child(7){ /*   盒子 >= 背景    盒子的其中一条边刚好盖完*/
+				background-size: contain;
+			}
+			div:nth-child(8){ /*   拉伸背景   有可能变形*/
+				background-size:100% 100%;
+			}
+			
 		</style>
 	</head>
 	<body>
+		<!-- div*6 -->
 		<div></div>
 		<div></div>
 		<div></div>
