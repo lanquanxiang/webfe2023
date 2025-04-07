@@ -10,12 +10,18 @@
 				var n3=n1-n2;
 				document.getElementById("n3").value=n3;
 			}
+			function add(){
+				var n1=document.getElementById("n1").value-0;
+				var n2=document.getElementById("n2").value-0;
+				var n3=n1+n2;
+				document.getElementById("n3").value=n3;
+			}
 		</script>
 	</head>
 	<body>
 		第一个数：<input type="text" id="n1" /> <br>
 		第二个数：<input type="text" id="n2" /> <br>
-		<button>+</button>
+		<button onclick="add()">+</button>
 		<button onclick="sub()">-</button> 
 		<button>*</button>
 		<button>/</button> <br>
