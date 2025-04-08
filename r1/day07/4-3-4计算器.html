@@ -5,20 +5,38 @@
 		<title></title>
 		<script type="text/javascript">
 			function sub(){
-				let number1 = document.getElementById("number1").value
-				let number2 = document.getElementById("number2").value
+				let number1 = document.getElementById("number1").value-0
+				let number2 = document.getElementById("number2").value-0
 				let number3 = number1-number2
-				document.getElementById("number3").value = number3
+				document.getElementById("number3").value = number3.toFixed(15)-0
+			}
+			function add(){
+				let number1 = document.getElementById("number1").value-0
+				let number2 = document.getElementById("number2").value-0
+				let number3 = number1+number2
+				document.getElementById("number3").value = number3.toFixed(15)-0
+			}
+			function mul(){
+				let number1 = document.getElementById("number1").value-0
+				let number2 = document.getElementById("number2").value-0
+				let number3 = number1*number2
+				document.getElementById("number3").value = number3.toFixed(15)-0
+			}
+			function div(){
+				let number1 = document.getElementById("number1").value-0
+				let number2 = document.getElementById("number2").value-0
+				let number3 = number1/number2
+				document.getElementById("number3").value = number3.toFixed(15)-0
 			}
 		</script>
 	</head>
 	<body>
 		第一个数：<input type="text" id="number1" /><br>
 		第二个数：<input type="text" id="number2" /><br>
-		<button>+</button>
+		<button onclick="add()">+</button>
 		<button onclick="sub()">-</button>
-		<button>*</button>
-		<button>/</button><br>
+		<button onclick="mul()">*</button>
+		<button onclick="div()">/</button><br>
 		计算结果：<input type="text" id="number3" /><br>
 	</body>
 </html>
