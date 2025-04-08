@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<button id="bid">按钮1</button>
+		<button class="bclass">按钮2</button>
+		<button name="bname">按钮3</button>
+		<button>按钮4</button>
+		<button type="btype">按钮5</button>
+		<button>按钮6</button>
+		<script type="text/javascript">
+			let b1=document.getElementById("bid")
+			console.log(b1);
+			
+			let b2=document.getElementsByClassName("bclass")
+			console.log(b2[0])
+			let b3=document.getElementsByName("bname")
+			console.log(b3[0])
+			let b4=document.getElementsByTagName("button")
+			console.log(b4[3])
+			let b5=document.querySelector("button[type=btype]")
+			console.log(b5)
+			let b6=document.querySelectorAll("button+button") //相邻兄弟选择器
+			console.log(b6[4]) //选中2[0].3[1].4[2].5[3].6[4]
+		</script>
+	</body>
+	
+</html>
