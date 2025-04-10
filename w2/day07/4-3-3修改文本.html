@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			function f1(){
+				var btn1=document.querySelector("button")
+				var txt=btn1.innerHTML
+				txt="<b>"+txt+"</b>"
+				btn1.innerHTML=txt
+				
+				var btn2=document.querySelector("button+button")
+				var txt=btn2.innerText
+				txt="<b>"+txt+"</b>"
+				btn2.innerText=txt
+			}
+		</script>
+	</head>
+	<body>
+		<button onclick="f1()">按钮1</button>
+		<button onclick="f1()">按钮2</button>
+	</body>
+</html>
