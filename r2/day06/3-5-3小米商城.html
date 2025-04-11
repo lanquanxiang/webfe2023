@@ -13,10 +13,10 @@
 				background-color: #333333;
 				
 			}
-			.con>ul:first-child>li{
+			.con>ul:first-child{
 				float: left;
 			}
-			.con>ul:nth-child(2)>li{
+			.con>ul:nth-child(2){
 				float: right;
 			}
 			.con li{
@@ -25,10 +25,11 @@
 				width: 100px;
 				line-height: 50px;
 				text-align: center;
+				display: inline-block;/* 所有的选项共用一行 */
 			}
 		</style>
 	</head>
-	<body>
+	<body bgcolor="grey">
 		<div class="con">
 			<ul>
 				<li>小米官网</li>
