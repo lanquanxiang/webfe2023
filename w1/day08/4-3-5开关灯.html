@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			var flag=false
+			function fun(){
+				let img=document.querySelector(".con>img")//容器中的图片，父子选择器
+				let h1=document.querySelector(".con>h1")
+				if(flag){//灯是开着的
+					img.setAttribute("src","../../src/off.png")
+					h1.innerHTML="灯灭了！"
+					h1.setAttribute("style","color: #000000;")
+					flag=false
+				}
+				else{//灯关着的
+					img.setAttribute("src","../../src/on.png")
+					h1.innerHTML="灯亮了！"
+					h1.setAttribute("style","color: #FF0000;")
+					flag=true
+				}
+			}			
+		</script>
+	</head>
+	<body>
+		<!-- 
+		1. 修改文字（内容） 
+		2. 修改文字的颜色（CSS）
+		3. 修改图片（修改src属性）
+		-->
+		<div class="con" style="text-align: center;" onclick="fun()">
+			<img src="../../src/off.png" width="200px">
+			<h1>点击开灯</h1>
+			
+		</div>
+	</body>
+</html>

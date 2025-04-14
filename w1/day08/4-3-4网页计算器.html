@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">			
+			function cal(op){
+				var n1=document.getElementById("n1").value;
+				var n2=document.getElementById("n2").value;
+				if(isNaN(n1) || isNaN(n2)){ //要求只能输入数字
+					document.getElementById("n3").value="只能运算数字";
+					return;
+				}
+				if(n2==0){ //解决除数为0
+					document.getElementById("n3").value="除数不能为0";
+					return;
+				}
+				//将第一个数、操作符、第二个数 三个字符串拼接在一起，用函数进行运算
+				var n3=eval(n1+op+n2)     
+				n3 = n3.toFixed(15)-0    //解决精度问题，0.1+0.2！=0.3
+				document.getElementById("n3").value=n3;
+			}
+		</script>
+	</head>
+	<body>
+		第一个数：<input type="text" id="n1" /> <br>
+		第二个数：<input type="text" id="n2" /> <br>
+		<button onclick="cal('+')">+</button>
+		<button onclick="cal('-')">-</button> 
+		<button onclick="cal('*')">*</button>
+		<button onclick="cal('/')">/</button> <br>
+		计算结果：<input type="text" id="n3" disabled="disabled" /> <br>
+		
+	</body>
+</html>

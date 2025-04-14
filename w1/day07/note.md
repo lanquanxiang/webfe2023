@@ -65,5 +65,11 @@
 ## 1. 元素element【重要】
 1. 获得元素（6种）
 2. 修改元素
+	1. 获取/修改内容 innerHTML属性、innerText属性
+	2. 增删改查某个元素（x）的属性
+		1. 查 x.getAttribute("属性")   x.value x.id x.class
+		2. 修 x.setAttribute("属性","值") x.value=y x.id=y x.class=y
+		3. 增 x.setAttribute("属性","值")
+		4. 删 x.removeAttribute("属性") 
 	
 	
