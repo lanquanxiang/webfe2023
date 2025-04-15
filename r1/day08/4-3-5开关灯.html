@@ -3,6 +3,25 @@
 	<head>
 		<meta charset="utf-8">
 		<title></title>
+		<script type="text/javascript">
+			let flag= false
+			function fun(){
+				let img=document.querySelector(".con>img")//赋值选择器
+				let h1=document.querySelector(".con>h1")
+				if(flag){
+					img.setAttribute("src","../../src/off.png")
+					h1.innerHTML="灯灭了"
+					h1.setAttribute("style","color: #000000;")
+					flag= false
+				}//从开灯到关灯
+				else{
+					img.setAttribute("src","../../src/on.png")
+					h1.innerHTML="灯亮了"
+					h1.setAttribute("style","color: #FF0000;")
+					flag= true
+				}
+			}
+		</script>
 	</head>
 	<body>
 		<div class="con" style="text-align: center;" onclick="fun()">
