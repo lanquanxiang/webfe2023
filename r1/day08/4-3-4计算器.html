@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">			
+			function cal(op){
+				let number1 = document.getElementById("number1").value
+				let number2 = document.getElementById("number2").value
+				let number3 = eval(number1+op+number2)
+				if(isNaN(number3) || !isFinite(number3)){
+					document.getElementById("number3").value = "只能输入数字,且除数不能为0"
+					return;
+				}				
+				document.getElementById("number3").value = number3.toFixed(15)-0
+			}
+		</script>
+	</head>
+	<body>
+		第一个数：<input type="text" id="number1" /><br>
+		第二个数：<input type="text" id="number2" /><br>
+		<button onclick="cal('+')">+</button>
+		<button onclick="cal('-')">-</button>
+		<button onclick="cal('*')">*</button>
+		<button onclick="cal('/')">/</button><br>
+		计算结果：<input type="text" id="number3" /><br>
+	</body>
+</html>
