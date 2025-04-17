@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			let array=[]
+			function lm(){
+					let name=document.getElementById("name").value
+					let msg=document.getElementById("msg").value
+					//let temp="["+name+"]说:"+msg
+					let temp=`[${name}]说:${msg}`
+					array.unshift(temp)
+					if(array.length>10){
+						array.pop()
+					}
+				document.getElementById("messages").value=array.join("\n")
+			}
+			function reset(){
+				document.getElementById("name").value=""
+				document.getElementById("msg").value=""
+				document.getElementById("messages").value=""
+			}
+		</script>
+	</head>
+	<body>
+		姓名：<input type="text" id="name"  /><br>
+		留言：<textarea rows="3" cols="30" id="msg" style="resize: none;vertical-align: middle;"></textarea><br>
+		<button type="button" onclick="reset()">重置</button>
+		<button type="button" onclick="lm()">留言</button>
+		<hr>
+		<textarea rows="10" cols="50" id="messages" style="resize: none;"></textarea>
+	</body>
+</html>

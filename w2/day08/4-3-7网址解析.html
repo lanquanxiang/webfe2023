@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			let  website="https://image.baidu.com/search/index?tn=baiduimage&ps=1&ct=201326592&lm=-1&cl=2&nc=1&ie=utf-8&dyTabStr=MCwxMiwzLDEsMiwxMyw3LDYsNSw5&word=%E6%94%80%E6%9E%9D%E8%8A%B1%E5%AD%A6%E9%99%A2"
+			let index=website.indexOf('?')
+			let str=website.substring(index+1)
+			console.log(str);
+			let arr=str.split("&")
+			console.log(arr);
+			let obj={}
+			for (var i = 0; i < arr.length; i++) {
+				let name=arr[i].split("=")[0]
+				let value=arr[i].split("=")[1]
+				obj[name]=decodeURI(value)
+			}
+			console.log(obj);
+			
+		</script>
+	</body>
+</html>
