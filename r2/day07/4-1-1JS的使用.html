@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<!-- 引入外部脚本 -->
+		<script src="my.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			//内部脚本，直接运行输出
+			console.log("直接运行，输出内容")
+		</script>
+	</head>
+	<body>
+		<!-- 事件响应来触发行内脚本/函数 -->
+		<button type="button" onclick="console.log('点击按钮就输出')">按钮</button>
+		<a href="javascript:console.log('点击超链接输出');">超链接</a>
+	</body>
+</html>

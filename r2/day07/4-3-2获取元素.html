@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		
+	</head>
+	<body>
+		<button id="bid">按钮1</button>
+		<button class="bclass">按钮2</button>
+		<button name="bname">按钮3</button>
+		<button>按钮4</button>
+		<button type="btype">按钮5</button>
+		<button>按钮6</button>
+		
+		<script type="text/javascript">
+			//获取按钮的代码要写在按钮加载之后
+			let btn1=document.getElementById("bid")
+			console.log(btn1)
+			let btn2=document.getElementsByClassName("bclass")
+			console.log(btn2[0])
+			let btn3=document.getElementsByName("bname")
+			console.log(btn3[0]);
+			let btn4=document.getElementsByTagName("button")
+			console.log(btn4[3]);
+			let btn5=document.querySelector("button[type=btype]")
+			console.log(btn5);
+			// let btn6=document.querySelectorAll("button")
+			// console.log(btn6[5]);
+			
+			// let btn6=document.querySelectorAll("button[type=btype]+button")
+			// console.log(btn6[0]);
+			
+			// let btn6=document.querySelectorAll("button+button+button+button+button+button")
+			// console.log(btn6[0]);
+			
+			let btn6=document.querySelectorAll("button:nth-child(6)")
+			console.log(btn6[0]);
+			
+			
+		</script>
+	</body>
+</html>
