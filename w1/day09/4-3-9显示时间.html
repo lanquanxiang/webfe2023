@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<h1></h1>
+		<script type="text/javascript">
+			let days=["星期天","星期一","星期二","星期三","星期四","星期五","星期六"]
+			function showDate(){
+				let date=new Date()
+				let year=date.getFullYear()
+				let mouth=format(date.getMonth()+1) 
+				let day=format( date.getDate())
+				let hour=format( date.getHours())
+				let min=format( date.getMinutes())
+				let secon=format(date.getSeconds()) 
+				let week=days[date.getDay()]
+				let str=`${year}-${mouth}-${day} ${hour}:${min}:${secon} ${week}`
+				document.querySelector("h1").innerHTML=str
+			}
+			function format(s){
+				if(s<10){
+					s="0"+s;
+				}
+				return s
+			}
+			setInterval(showDate,1000)
+		</script>
+	</body>
+</html>
