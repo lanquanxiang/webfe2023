@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>		
+	  <div id="con">
+	    <div>这是div的文本</div>
+	    这是没有标记的文本
+	    <!-- 这是注释 --></div>		
+	</body>
+	<script type="text/javascript">
+		let x = document.getElementById("con")
+		x.childNodes.forEach(function(node) {			  
+		  console.log("子节点类型:"+node.nodeType+",节点内容:"+node.nodeValue);
+		});
+	</script>
+</html>

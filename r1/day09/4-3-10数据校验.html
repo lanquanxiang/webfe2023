@@ -4,6 +4,16 @@
 		<meta charset="utf-8">
 		<title></title>
 		<script type="text/javascript">
+			function check1(){
+				let reg=/^[A-a]\w{2,14}$/
+				let username=document.getElementById("username").value
+				if(reg.test(username)){
+					document.getElementById("note1").innerHTML="OK"
+				}else{
+					document.getElementById("note1").innerHTML="error"
+				}
+			}
+			
 			function check2(){
 				let reg=/^1\d{10}$/
 				let phone=document.getElementById("phone").value
@@ -11,6 +21,27 @@
 					document.getElementById("note2").innerHTML="OK"
 				}else{
 					document.getElementById("note2").innerHTML="error"
+				}
+			}
+			
+			function check3(){
+				let reg=/(^0\d{2}-?\d{8}$)|(^0\d{3}-?\d{7}$)/
+				
+				let tphone=document.getElementById("tphone").value
+				if(reg.test(tphone)){
+					document.getElementById("note3").innerHTML="OK"
+				}else{
+					document.getElementById("note3").innerHTML="error"
+				}
+			}
+			function check4(){
+				let reg=/^(([1-9]\d{0,14})|0)(\.\d{1,2})?$/
+				
+				let money=document.getElementById("money").value
+				if(reg.test(money)){
+					document.getElementById("note4").innerHTML="OK"
+				}else{
+					document.getElementById("note4").innerHTML="error"
 				}
 			}
 		</script>
