@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			function addText(){
+				let df=document.createDocumentFragment()
+				for (var i = 0; i < 10; i++) {
+					let text=document.createElement("div")
+					text.innerHTML="文字节点"
+					df.appendChild(text)
+				}
+				document.querySelector(".con").appendChild(df)
+			}
+			function addImg(){
+				let di=document.createDocumentFragment()
+				for (var i = 0; i < 10; i++) {
+					let text=document.createElement("img")
+					text.setAttribute("src","../../src/ok.png")
+					di.appendChild(text)
+				}
+				document.querySelector(".con").appendChild(di)
+			}
+		</script>
+	</head>
+	<body>
+		<button onclick="addText()">添加十个文字</button>
+		<button onclick="addImg()">添加十个图片</button>
+		<div class="con"></div>
+	</body>
+</html>

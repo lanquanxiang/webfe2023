@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			function addText(){
+				let text=document.createElement("div")
+				text.innerHTML="文字节点"
+				document.querySelector(".con").appendChild(text)
+				
+			}
+			function addImg(){
+				let text=document.createElement("img")
+				text.setAttribute("src","../../src/ok.png")
+				document.querySelector(".con").appendChild(text)
+				
+			}
+			function delete1(){
+				let text = document.querySelector(".con>div")
+				text.parentNode.removeChild(text)
+			}
+			function delete2(){
+				let text = document.querySelector(".con>img")
+				text.parentNode.removeChild(text)
+			}
+			function delete3(){
+				let text = document.querySelector(".con")
+				text.removeChild(text.firstChild)
+			}
+			function delete4(){
+				let text = document.querySelector(".con")
+				text.removeChild(text.lastChild)
+			}
+		</script>
+	</head>
+	<body>
+		<button onclick="addText()">添加文字</button>
+		<button onclick="addImg()">添加图片</button>
+		<button onclick="delete1()">删除第一个文本</button>
+		<button onclick="delete2()">删除第一个图片</button>
+		<button onclick="delete3()">删除第一个孩子</button>
+		<button onclick="delete4()">删除最后一个孩子</button>
+		<div class="con"></div>
+	</body>
+</html>
