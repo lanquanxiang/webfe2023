@@ -42,5 +42,7 @@
 
 # 5. Math
 1. 绝对值、向上取整、向下取整、四舍五入
-2. 随机函数
+2. 随机函数 Math.random() [0,1)
+	1. [0,n]任意的整数    Math.floor(Math.random()*(n+1))
+	2. [m,n]任意的整数	Math.floor(Math.random()*(n-m+1))+m
 3. 扩展：三角函数

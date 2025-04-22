@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			let days=["星期天","星期一","星期二","星期三","星期四","星期五","星期六"]
+			function show(){
+				let now = new Date()
+				let year = now.getFullYear()
+				let month = format(now.getMonth()+1)
+				let day = format(now.getDate())
+				let hours = format(now.getHours())
+				let minutes = format(now.getMinutes())
+				let seconds = format(now.getSeconds())
+				let week = days[now.getDay()]
+				let str = `${year}-${month}-${day} ${hours}:${minutes}:${seconds} ${week}`
+				document.querySelector("div").innerHTML = str
+				
+			}
+			function format(num){
+				if(num < 10){
+					num = "0"+num
+				}
+				return num
+			}
+		</script>
+	</head>
+	<body>
+		<div style="font-size: 32px; font-weight: 700;"></div>
+		<script type="text/javascript">
+			setInterval(show,1000)
+		</script>
+	</body>
+</html>
