@@ -3,6 +3,17 @@
 	<head>
 		<meta charset="utf-8">
 		<title></title>
+		<script type="text/javascript">
+			function check2(){
+				let reg=/^1\d{10}$/
+				let phone=document.getElementById("phone").value
+				if(reg.test(phone)){
+					document.getElementById("note2").innerHTML="OK"
+				}else{
+					document.getElementById("note2").innerHTML="error"
+				}
+			}
+		</script>
 	</head>
 	<body>
 		输入用户名称: <input type="text" id="username">
