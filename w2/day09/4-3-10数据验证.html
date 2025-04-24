@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			function check1(){
+				let reg=/^[A-z]\w{2,14}$/	
+				let str=document.getElementById("username").value
+				if(reg.test(str)){
+					document.getElementById("res1").innerHTML="OK"
+				}else{
+					document.getElementById("res1").innerHTML="ERROR"
+				}				
+			}
+			function check2(){
+				let reg=/^1\d{10}$/	
+				let str=document.getElementById("mobilephone").value
+				if(reg.test(str)){
+					document.getElementById("res2").innerHTML="OK"
+				}else{
+					document.getElementById("res2").innerHTML="ERROR"
+				}				
+			}
+			function check3(){
+				let reg=/(^0\d{2}-?\d{8}$)|(^0\d{3}-?\d{7}$)/
+				// let reg=/^0\d{2}-$/	
+				let str=document.getElementById("tel").value
+				if(reg.test(str)){
+					document.getElementById("res3").innerHTML="OK"
+				}else{
+					document.getElementById("res3").innerHTML="ERROR"
+				}				
+			}
+			function check4(){
+				let reg=/^(([1-9]\d{0,14})|0)(\.\d{1,2})?$/	
+				let str=document.getElementById("money").value
+				if(reg.test(str)){
+					document.getElementById("res4").innerHTML="OK"
+				}else{
+					document.getElementById("res4").innerHTML="ERROR"
+				}				
+			}
+		</script>
+	</head>
+	<body>
+		请输入用户昵称:<input type="text"  id="username" />
+		<button type="button" onclick="check1()">检测</button>
+		<span id="res1"></span><br>
+		请输入手机号码:<input type="text"  id="mobilephone" />
+		<button type="button" onclick="check2()">检测</button>
+		<span id="res2"></span><br>
+		请输入座机号码:<input type="text"  id="tel" />
+		<button type="button" onclick="check3()">检测</button>
+		<span id="res3"></span><br>
+		请输入存款金额:<input type="text"  id="money" />
+		<button type="button" onclick="check4()">检测</button>
+		<span id="res4"></span><br>
+		
+	</body>
+</html>

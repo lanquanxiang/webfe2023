@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>实时日期时间显示</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f9;
+        }
+        h1 {
+            font-size: 2em;
+            color: #333;
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <h1 id="date-time-display"></h1>
+    <script>
+        const displayElement = document.getElementById('date-time-display');
+
+        function format(num) {
+            return num < 10 ? `0${num}` : num;
+        }
+
+        function show() {
+            try {
+                const today = new Date();
+                const year = today.getFullYear();
+                const month = format(today.getMonth() + 1);
+                const date = format(today.getDate());
+                const hour = format(today.getHours());
+                const min = format(today.getMinutes());
+                const seconds = format(today.getSeconds());
+                const days = ['星期天', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+                const day = days[today.getDay()];
+
+                const str = `${year}-${month}-${date} ${hour}:${min}:${seconds} ${day}`;
+                displayElement.textContent = str;
+            } catch (error) {
+                console.error('日期时间显示出错:', error);
+                displayElement.textContent = '日期时间显示出错，请稍后重试';
+            }
+        }
+
+        setInterval(show, 1000);
+        show();
+    </script>
+</body>
+</html>
+    

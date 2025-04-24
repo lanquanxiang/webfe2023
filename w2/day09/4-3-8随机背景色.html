@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			function getColor() {
+				let r=Math.floor(Math.random()*256)
+				let g=Math.floor(Math.random()*256)
+				let b=Math.floor(Math.random()*256)
+				let color=`rgb(${r},${g},${b})`
+				let span=document.querySelector("span")
+				span.innerHTML=color
+				document.body.setAttribute("style",`background-color:${color}`)
+			}
+		</script>
+	</head>
+	<body>
+		<button type="button" onclick="getColor()">随机颜色</button>
+		<span>rgb(255,255,255)</span>
+	</body>
+</html>
