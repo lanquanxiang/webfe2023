@@ -3,12 +3,31 @@
 	<head>
 		<meta charset="utf-8">
 		<title></title>
+		<script type="text/javascript">
+			let arr=[]
+			function say(){
+				let username=document.getElementById("username").value
+				let speak=document.getElementById("speak").value
+				// let str="["+username+"]说："+speak+"!"
+				let str=`[${username}]说：${speak}!`
+				arr.unshift(str)
+				if(arr.length>10){
+					arr.pop()
+				}
+				document.getElementById("allspeak").value=arr.join("\n")
+			}
+			function reset(){
+				document.getElementById("username").value = ""
+				document.getElementById("speak").value = ""
+				document.getElementById("allspeak").value=""
+			}
+		</script>
 	</head>
 	<body>
 		姓名：<input type="text" id="username"/><br>
 		留言：<textarea rows="3" cols="30" id="speak" style="vertical-align: middle; resize: none;"></textarea><br>
-		<button type="button">重置</button>
-		<button type="button">留言</button><hr>
+		<button type="button" onclick="reset()">重置</button>
+		<button type="button" onclick="say()">留言</button><hr>
 		<textarea rows="10" cols="50" id="allspeak" style="resize: none;" disabled="disabled"></textarea>
 	</body>
 </html>
