@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			let state=false
+			function turn(){
+				let img=document.querySelector(".con>img")
+				let h1=document.querySelector(".con>img+h1")
+				if(state){
+					img.setAttribute("src","../../src/off.png")
+					h1.innerHTML="灯灭了!"
+					h1.setAttribute("style","color: #000000;")
+					state=false
+				
+				}
+				else{
+					img.setAttribute("src","../../src/on.png")
+					h1.innerHTML="灯亮了!"
+					h1.setAttribute("style","color: #FF0000;")
+					state=true
+					
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div class="con" style="text-align: center;" onclick="turn()">
+			<img src="../../src/off.png" width="200px">
+			<h1>点击开灯</h1>
+		</div>
+	</body>
+</html>

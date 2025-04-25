@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			function cal(op){
+				let num1=document.getElementById("num1").value
+				let num2=document.getElementById("num2").value
+				//判断没有输入的情况,文本框的值是""
+				if(num1==""||num2==""){
+					document.getElementById("num3").value="数字输入不完整"
+					return;
+				}				
+				//判断输入内容不是数字
+				if(isNaN(num1)||isNaN(num2)){
+					document.getElementById("num3").value="只能输入数字"
+					return;
+				}
+				let num3=eval(num1+op+num2)   //使用eval直接计算字符串
+				//判断除数是0的情况
+				if(isNaN(num3) || !isFinite(num3)){
+					document.getElementById("num3").value="除数不能为0"
+					return;
+				}
+				document.getElementById("num3").value=num3.toFixed(15)-0
+			}		
+		</script>
+	</head>
+	<body>
+		第一个数：<input type="text" id="num1" /><br>
+		第二个数：<input type="text" id="num2" /><br>
+		<button onclick="cal('+')">+</button>
+		<button onclick="cal('-')">-</button>
+		<button onclick="cal('*')">*</button>
+		<button onclick="cal('/')">/</button><br>
+		计算结果：<input type="text" id="num3" /><br>
+	</body>
+</html>
