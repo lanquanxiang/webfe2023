@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			function addEvent() {
+				// 方法3：获取元素之后，为元素添加时间监听
+				let btn1 = document.querySelector("button")
+				btn1.addEventListener("click", test)
+			}
+			function test() {
+				alert("监听器添加成功！")
+			}
+		</script>
+	</head>
+	<body>
+		<button type="button">按钮</button><br>
+		<!-- 方法1：直接在标签中添加事件处理 -->
+		<button type="button" onclick="addEvent()">启用第一个按钮</button><br>
+		<button type="button">禁用第一个按钮</button>
+		<script type="text/javascript">
+			let btn3 = document.querySelectorAll("button")[2]
+			// 方法2：获取元素之后，为事件属性赋值（赋值一个函数）
+			btn3.onclick = function() {
+				let btn1 = document.querySelector("button")
+				btn1.removeEventListener("click", test)
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<h1>网页在<span>10</span>秒跳转到攀枝花学院</h1>
+		<button type="button" onclick="fun()">停止跳转</button>
+		<script type="text/javascript">
+			function display(){
+				let t=document.querySelector("h1>span").innerText
+				if(t>1){
+					document.querySelector("h1>span").innerText=t-1
+				}
+			}			
+			function setURL(){
+				window.location.href="https://www.pzhu.cn"
+			}
+			
+			let t1=setInterval(display,1000)
+			let t2=setTimeout(setURL,10000)
+			
+			let flag = true;
+			function fun(){
+				if(flag){
+					clearTimeout(t2)
+					clearInterval(t1)
+					document.querySelector("button").innerHTML = "继续跳转"
+					flag=false
+				}else{
+					t1=setInterval(display,1000)
+					let time = document.querySelector("h1>span").innerText*1000
+					t2=setTimeout(setURL,time)
+					document.querySelector("button").innerHTML = "停止跳转"
+					flag=true
+				}
+				
+			}
+			/**
+			 * 任务：
+			 * 1. 点击了“停止跳转”之后，按钮变成“继续跳转”
+			 * 2. 点击“继续跳转”之后，倒计时继续，5000需要变成当前剩余时间
+			 */
+		</script>
+	</body>
+</html>
