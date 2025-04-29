@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			let flag=true
+			function fun(){
+				if(flag){//正在倒计时，从倒计时变成停止
+					clearTimeout(t1)
+					clearInterval(t2)
+					document.querySelector("h1+button").innerHTML="继续跳转"
+					flag=false
+				}
+				else{
+					let t=document.querySelector("span").innerHTML*1000
+					t1= setTimeout(jump,t)
+					t2= setInterval(time,1000)
+					document.querySelector("h1+button").innerHTML="停住跳转"
+					flag=true
+				}
+			}
+			function jump(){
+				location.href="https://www.pzhu.cn"
+			}
+			function time(){
+				let span=document.querySelector("h1>span")
+				if (span.innerHTML>1){
+					span.innerHTML=span.innerHTML-1
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<h1>网页在<span>5</span>秒后跳转到攀枝花学院</h1>
+		<button type="button" onclick="fun()">停止跳转</button>
+		<script type="text/javascript">
+			let t1= setTimeout(jump,5000)
+			let t2= setInterval(time,1000)
+			
+		</script>
+	</body>
+</html>

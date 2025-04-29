@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			let wid
+			
+			function fun1(){
+				let f="width=800,height=600,left=300,top=300"
+				wid=window.open("https://www.pzhu.cn","pzhu",f)
+			}
+			function fun2(){
+				wid.close()
+			}
+		</script>
+	</head>
+	<body>
+		<button type="button" onclick="fun1()">打开</button>
+		<button type="button" onclick="fun2()">关闭</button>
+	</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			function fun1(){
+				alert("即将跳转到攀枝花学院")
+				location.href="https://www.pzhu.cn"
+			}
+			function fun2(){
+				let ans=confirm("是否要跳转到攀枝花学院")
+				if(ans){
+					location.href="https://www.pzhu.cn"
+				}
+			}
+			function fun3(){
+				let ans=prompt("请输入网址","https://www.pzhu.cn")
+				location.href=ans
+			}
+		</script>
+	</head>
+	<body>
+		<button type="button" onclick="fun1()">通知</button>
+		<button type="button" onclick="fun2()">确认</button>
+		<button type="button" onclick="fun3()">自定义</button>
+	</body>
+</html>
