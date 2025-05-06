@@ -3,8 +3,23 @@
 	<head>
 		<meta charset="utf-8">
 		<title></title>
+		<script type="text/javascript">
+			function fun(){
+				let btns=document.querySelectorAll("button")
+				for (var i = 0; i < btns.length; i++) {
+					// btns[i].addEventListener("click",function(){
+					// 	console.log(`你${event.type}了${event.target.textContent}`);
+					// },false)
+					btns[i].addEventListener("click",print,false)
+					btns[i].addEventListener("mouseover",print,false)
+				}
+			}
+			function print(){
+				console.log(`你${event.type}了${event.target.textContent}`);
+			}
+		</script>
 	</head>
-	<body>
+	<body onload="fun()">
 		<button>按钮1</button>
 		<button>按钮2</button>
 		<button>按钮3</button>
@@ -15,18 +30,5 @@
 		<button>按钮8</button>
 		<button>按钮9</button>
 		<button>按钮10</button>
-		<script type="text/javascript">
-			let btns=document.querySelectorAll("button")
-			for (var i = 0; i < btns.length; i++) {
-				// btns[i].addEventListener("click",function(){
-				// 	console.log(`你${event.type}了${event.target.textContent}`);
-				// },false)
-				btns[i].addEventListener("click",print,false)
-				btns[i].addEventListener("mouseover",print,false)
-			}
-			function print(){
-				console.log(`你${event.type}了${event.target.textContent}`);
-			}
-		</script>
 	</body>
 </html>
