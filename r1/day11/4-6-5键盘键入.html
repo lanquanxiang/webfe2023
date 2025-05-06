@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 扩展任务：只允许输入数字或字母 -->
+		只允许输入数字：<input type="text">
+		<script type="text/javascript">
+			let input=document.querySelector("input")
+			input.onkeypress=function(){
+				console.log(`输入的键的名字是${event.key},键的值是${event.keyCode}`);
+				if(isNaN(event.key)){
+					console.error("不能输入非数字")
+					event.preventDefault()//阻止键盘输入
+				}
+			}
+		</script>
+	</body>
+</html>

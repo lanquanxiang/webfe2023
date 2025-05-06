@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				border: 1px #000000 solid;
+			}
+			#d1{
+				width: 150px;
+				height: 150px;
+			}
+			#d2{
+				width: 100px;
+				height: 100px;
+			}
+			#d3{
+				width: 50px;
+				height: 50px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="d1">d1
+			<div id="d2">d2
+				<div id="d3">d3</div>
+			</div>
+		</div>
+		<script type="text/javascript">
+			let divs=document.querySelectorAll("div")
+			for (var i = 0; i < divs.length; i++) {
+				divs[i].addEventListener("click",fun1,true)//捕获型
+				divs[i].addEventListener("click",fun2,false)//冒泡型(浏览器默认行为)
+			}
+			function fun1(){
+				console.log(`捕获型${event.currentTarget.id}正在执行`);
+				//event.stopPropagation()
+			}
+			function fun2(){
+				console.log(`冒泡型${event.currentTarget.id}正在执行`);
+				event.stopPropagation() //阻止事件继续传播
+			}
+		</script>
+	</body>
+</html>
