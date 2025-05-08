@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			function add1(){
+				let text=document.createElement("p")
+				text.innerHTML="文字节点"  //改变文本
+				text.setAttribute("style","color: red;") //通过改变style属性来间接控制CSS样式
+				document.getElementsByClassName("con")[0].appendChild(text)
+			}
+			function add2(){
+				let img=document.createElement("img")
+				img.setAttribute("src","../../src/ok.png") //改变/增加属性
+				document.getElementsByClassName("con")[0].appendChild(img)
+			}
+		</script>
+	</head>
+	<body>
+		<button type="button" onclick="add1()">添加文本</button>
+		<button type="button" onclick="add2()">添加图片</button>
+		<div class="con"></div>
+	</body>
+</html>
