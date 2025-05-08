@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			function f1(){
+				alert("即将跳转到攀枝花学院")
+				location.href="https://www.pzhu.cn/"
+			}
+			function f2(){
+				let res=confirm("是否跳转到攀枝花学院？")
+				if(res==true){
+					location.href="https://www.pzhu.cn/"
+				}
+			}
+			function f3(){
+				let res=prompt("请输入网址：","https://www.pzhu.cn/")
+				if(res){ 
+					//取消输入，res的值是null，如果什么都不输入，res的值是""
+					// 不管是null还是""，在if判断时候，都会强制转换为false
+					//更多的类型转换 教程4.2
+					location.href=res
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<button type="button" onclick="f1()">提示即将跳转</button>
+		<button type="button" onclick="f2()">确认是否跳转</button>
+		<button type="button" onclick="f3()">自定义跳转</button>
+	</body>
+</html>

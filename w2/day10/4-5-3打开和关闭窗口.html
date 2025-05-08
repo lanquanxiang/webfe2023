@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			let win
+			function openURL(){
+				let url="https://www.pzhu.cn/"
+				let name="pzhu"
+				let f="width=800px,height=600px,left=500px,top=300px"
+				win=window.open(url,name,f)
+			}
+			function closeURL(){
+				win.close()
+			}
+		</script>
+	</head>
+	<body>
+		<button type="button" onclick="openURL()">打开窗口</button>
+		<button type="button" onclick="closeURL()">关闭窗口</button>
+	</body>
+</html>

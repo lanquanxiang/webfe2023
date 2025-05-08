@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<h1>网页在<span>5</span>秒后跳转到攀枝花学院！</h1>
+		<button type="button" onclick="stop()">停止跳转</button>
+		<script type="text/javascript">
+			let t1=setTimeout(setURL,5000)
+			let t2=setInterval(display,1000)
+			function setURL(){
+				location.href="https://www.pzhu.cn/"
+			}
+			function display(){
+				let span=document.querySelector("h1>span")
+				if(span.innerHTML>1){
+					span.innerHTML=span.innerHTML-1
+				}
+			}
+			//任务：停止之后，能够继续跳转？
+			function stop(){
+				clearTimeout(t1)
+				clearInterval(t2)
+			}
+		</script>
+	</body>
+</html>
