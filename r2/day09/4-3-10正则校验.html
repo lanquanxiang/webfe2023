@@ -22,7 +22,24 @@
 					document.getElementById("r2").innerHTML="error"
 				}
 			}
-			
+			function check3(){
+				let reg=/(^0\d{2}-?\d{8}$)|(^0\d{3}-?\d{7}$)/
+				let tel=document.getElementById("tel").value
+				if(reg.test(tel)){
+					document.getElementById("r3").innerHTML="OK"
+				}else{
+					document.getElementById("r3").innerHTML="error"
+				}
+			}
+			function check4(){
+				let reg=/^(0|([1-9]\d{0,14}))(\.\d{1,2})?$/
+				let money=document.getElementById("money").value
+				if(reg.test(money)){
+					document.getElementById("r4").innerHTML="OK"
+				}else{
+					document.getElementById("r4").innerHTML="error"
+				}
+			}
 		</script>
 	</head>
 	<body>
