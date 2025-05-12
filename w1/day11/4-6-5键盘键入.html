@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		请输入字母：<input type="text" />
+		<script type="text/javascript">
+			let input=document.querySelector("input");
+			input.onkeypress=function(){
+				console.log(`你输入的内容是${event.key},键码是${event.keyCode}`);
+				//数字 48-57
+				//字母 65-122
+				//大写 65-90
+				//小写 97-122
+				//任务：1. 输入数字或字母   2. 使用event.key进行判断
+				if(event.keyCode<65||event.keyCode>122 || (event.keyCode>90&&event.keyCode<97)){
+					console.error("只能输入字母")
+					event.preventDefault()
+				}
+			}
+			
+		</script>
+	</body>
+</html>

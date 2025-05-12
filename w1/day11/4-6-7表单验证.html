@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			function check(){
+				let username=document.querySelector("#username").value
+				if(username.trim()==''){//去掉字符串前后的空格
+					document.getElementById("r1").innerHTML="姓名不能为空"
+					return false//阻止表单提交
+				}else{
+					document.getElementById("r1").innerHTML="通过验证"
+				}
+				
+				let password=document.getElementById("password").value
+				if(password.length<6){
+					document.getElementById("r2").innerHTML="密码长度不能小于6位"
+					return false
+				}else{
+					document.getElementById("r2").innerHTML="通过验证"
+				}
+				let age=document.getElementById("age").value
+				if(isNaN(age)||age<0||age>150){
+					document.getElementById("r3").innerHTML="年龄必须是0-150的数字"
+					return false
+				}else{
+					document.getElementById("r3").innerHTML="通过验证"
+				}
+				let phone=document.getElementById("phone").value
+				let reg=/^1\d{10}$/
+				if(!reg.test(phone)){
+					document.getElementById("r4").innerHTML="必须是1开头的11位数字"
+					return false
+				}else{
+					document.getElementById("r4").innerHTML="通过验证"
+				}
+				return true
+			}
+		</script>
+	</head>
+	<body>
+		<form action="success.html" onsubmit="return check()">
+			姓名：<input type="text"  id="username"  />
+			<span id="r1"></span><br>
+			密码：<input type="password"  id="password"  />
+			<span id="r2"></span><br>
+			年龄：<input type="text"  id="age"  />
+			<span id="r3"></span><br>
+			手机：<input type="text"  id="phone"  />
+			<span id="r4"></span><br>
+			<input type="submit"   value="提交" />
+			
+		</form>
+	</body>
+</html>
