@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body onload="init()">
+		请选择：<select id="pro"></select>省<select id="city"></select>市
+		
+		<script type="text/javascript">
+			let provinces = [];
+			let pro = document.getElementById("pro")
+			let city = document.getElementById("city")
+			function init(){
+				let xhr = new XMLHttpRequest();
+				xhr.open("GET","cities.json",false);
+				xhr.send();
+				var data = xhr.responseText;
+				provinces = JSON.parse(data) //将JSON文件中的文本数据转换为对象（省份的数组）
+				
+				for (var i = 0; i < provinces.length; i++) {
+					pro.options[i] = new Option(provinces[i].name)  //将第i个省份的名字写入第一个下拉列表中					
+				}
+			}
+		</script>
+	</body>
+</html>

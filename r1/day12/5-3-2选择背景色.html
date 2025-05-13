@@ -15,8 +15,12 @@
 						colors = xmldata.querySelectorAll("color");
 						let select = document.querySelector("select")
 						for (var i = 0; i < colors.length; i++) {
+							//动态生成下拉列表的选项（很有用）
 							select.options[i] = new Option(colors[i].querySelector("name").innerHTML)
 						}
+						let c = colors[0].querySelector("value").innerHTML
+						document.body.setAttribute("style","background-color: "+c+";")
+						
 					}
 				}
 				
@@ -25,5 +29,13 @@
 	</head>
 	<body onload="init()">
 		请选择背景颜色：<select></select>
+		<script type="text/javascript">
+			let select = document.querySelector("select")
+			select.addEventListener("change",function(){
+				let index = select.selectedIndex//下拉列表中被选中的选项的索引
+				let c = colors[index].querySelector("value").innerHTML
+				document.body.setAttribute("style","background-color: "+c+";")
+			})
+		</script>
 	</body>
 </html>
