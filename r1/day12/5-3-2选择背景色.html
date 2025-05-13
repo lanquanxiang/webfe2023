@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			let colors = [];
+			function init(){
+				let xhr = new XMLHttpRequest();
+				xhr.open("GET","stus.xml",false);
+				xhr.send();
+				var xmldata = xhr.responseXML;
+				colors = xmldata.querySelectorAll("student");
+				document.getElementById("num").value = colors[0].getAttribute("sno");
+				document.getElementById("sname").value = colors[0].getAttribute("sname");
+				
+			}
+		</script>
+	</head>
+	<body onload="init()">
+		请选择背景颜色：<select></select>
+	</body>
+</html>
