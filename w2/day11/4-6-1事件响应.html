@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			function add(){
+				let button1=document.querySelector("button")
+				// 方法3：获得元素之后，为元素添加事件监听
+				button1.addEventListener("click",fun)
+			}
+			
+			function fun(){
+				alert(1)
+			}
+		</script>
+	</head>
+	<body>
+		<button>按钮</button>
+		<!-- 方法1：直接添加事件响应 -->
+		<button onclick="add()">添加事件</button>
+		<button>移除事件</button>
+		<script type="text/javascript">
+			let button3=document.querySelectorAll("button")[2]
+			// 方法2：获得元素之后，为元素的事件属性赋值一个函数
+			button3.onclick=function(){
+				let button1=document.querySelector("button")
+				button1.removeEventListener("click",fun)
+			}
+		</script>
+	</body>
+</html>

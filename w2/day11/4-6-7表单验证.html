@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<script type="text/javascript">
+				
+			function check(){
+				let username=document.getElementById("username").value
+				if(username.trim()==""){
+					//清除前，后置空格
+					document.getElementById("res1").innerHTML="姓名不能为空"
+					return false;
+				}
+				let password=document.getElementById("password").value
+				if(password.length<6){
+					document.getElementById("res2").innerHTML="密码长度不足6位"
+					return false;
+				}
+				let age=document.getElementById("age").value
+				if(isNaN(age)||age<=0||age>=150){
+					document.getElementById("res3").innerHTML="年龄必须是0到150"
+					return false;
+				}
+				let phone=document.getElementById("phone").value
+				let reg = /^1[0-9]{10}$/
+				if(!reg.test(phone)){
+					document.getElementById("res4").innerHTML="号码不对"
+					return false;
+				}
+				return true
+			}
+		</script>
+		<title></title>
+	</head>
+	<body>
+		<form action="success.html" method="get" onsubmit="return check()">
+			姓名：<input type="text" id="username" /><span id="res1"></span><br>
+			密码：<input type="password" id="password" /><span id="res2"></span><br>
+			年龄：<input type="text" id="age" /><span id="res3"></span><br>
+			手机：<input type="text" id="phone" /><span id="res4"></span><br>
+			<input type="submit" value="提交"/>
+			
+		</form>
+	</body>
+</html>
