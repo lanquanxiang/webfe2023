@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			function f1(){
+				let node=document.createElement("div")
+				node.innerHTML="文字节点"
+				document.querySelector(".con").appendChild(node)
+			}
+			function f2(){
+				let node=document.createElement("img")
+				node.setAttribute("src","../../src/ok.png")
+				document.querySelector(".con").appendChild(node)
+			}
+			function f3(){
+				//通过css选择器选择容器中的文本
+				let node=document.querySelector(".con>div")
+				if(node!=null){
+					node.parentNode.removeChild(node)
+				}
+			}
+			function f4(){
+				//通过css选择器选择容器中的文本
+				let node=document.querySelector(".con>img")
+				if(node!=null){
+					node.parentNode.removeChild(node)
+				}
+			}
+			function f5(){
+				//通过css选择器选择容器中的文本
+				let con=document.querySelector(".con")
+				if(con.firstChild!=null){
+					con.removeChild(con.firstChild)
+				}
+			}
+			function f6(){
+				//通过css选择器选择容器中的文本
+				let con=document.querySelector(".con")
+				if(con.lastChild!=null){
+					con.removeChild(con.lastChild)
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<button onclick="f1()">添加文本</button>
+		<button onclick="f2()">添加图片</button>
+		<button onclick="f3()">删除文本</button>
+		<button onclick="f4()">删除图片</button>
+		<button onclick="f5()">删除第一个元素</button>
+		<button onclick="f6()">删除最后一个孩子</button>
+		<div class="con"></div>
+	</body>
+</html>

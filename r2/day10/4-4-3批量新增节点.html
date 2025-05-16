@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			function f1(){
+				let def=document.createDocumentFragment()
+				for (let i = 0; i <10; i++) {
+					let node=document.createElement("div")
+					node.innerHTML="文字节点"
+					def.appendChild(node)
+				}
+				document.querySelector(".con").appendChild(def)
+			}
+			function f2(){
+				let def=document.createDocumentFragment()
+				for (let i = 0; i < 10; i++) {
+					let node=document.createElement("img")
+					node.setAttribute("src","../../src/ok.png")
+					def.appendChild(node)
+				}
+
+				document.querySelector(".con").appendChild(def)
+			}
+		</script>
+	</head>
+	<body>
+		<button onclick="f1()">添加十个文本</button>
+		<button onclick="f2()">添加十个图片</button>
+		<div class="con"></div>
+	</body>
+</html>
