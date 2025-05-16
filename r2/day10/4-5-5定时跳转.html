@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<h1>网页<span>5</span>秒以后跳转</h1>
+		<button type="button" onclick="f1()">停止跳转</button>
+		<script type="text/javascript">
+			function f2(){
+				// 修改这个属性，可以实现网页跳转
+				location.href="https://www.pzhu.cn/"
+			}
+			
+			function f3(){
+				let span=document.querySelector("h1>span")
+				if(span.innerHTML>1){
+					span.innerHTML=span.innerHTML-1
+				}
+			}
+			
+			
+			let t1=setTimeout(f2,document.querySelector("h1>span").innerHTML*1000)
+			let t2=setInterval(f3,1000)
+			
+			let state = true //定时器默认运行中
+			function f1(){
+				if(state){
+					clearTimeout(t1)
+					clearTimeout(t2)
+					document.querySelector("button").innerHTML="继续跳转"
+					state = false
+				}else{
+					t1=setTimeout(f2,document.querySelector("h1>span").innerHTML*1000)
+					t2=setInterval(f3,1000)
+					document.querySelector("button").innerHTML="停止跳转"
+					state = true
+				}
+			}
+		</script>
+	</body>
+</html>
