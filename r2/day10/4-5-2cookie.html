@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie管理工具</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3b82f6',
+                        secondary: '#64748b',
+                        accent: '#f97316',
+                        success: '#10b981',
+                        danger: '#ef4444',
+                    },
+                    fontFamily: {
+                        inter: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .card-shadow {
+                box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            }
+            .btn-hover {
+                @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5;
+            }
+            .input-focus {
+                @apply focus:ring-2 focus:ring-primary/50 focus:border-primary focus:outline-none;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-inter min-h-screen flex flex-col">
+    <header class="bg-gradient-to-r from-primary to-primary/80 text-white py-6 px-4 shadow-md">
+        <div class="container mx-auto">
+            <h1 class="text-[clamp(1.75rem,3vw,2.5rem)] font-bold flex items-center">
+                <i class="fa fa-cookie-bite mr-3"></i>
+                Cookie管理工具
+            </h1>
+            <p class="text-blue-100 mt-2 max-w-2xl">轻松管理您的浏览器Cookie数据，安全存储和读取个人信息。</p>
+        </div>
+    </header>
+
+    <main class="flex-grow container mx-auto px-4 py-12">
+        <div class="max-w-md mx-auto bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
+            <div class="p-6">
+                <h2 class="text-xl font-bold text-gray-800 mb-6 flex items-center">
+                    <i class="fa fa-user-circle text-primary mr-2"></i>
+                    个人信息管理
+                </h2>
+                
+                <div class="space-y-4">
+                    <div>
+                        <label for="username" class="block text-sm font-medium text-gray-700 mb-1">姓名</label>
+                        <div class="relative">
+                            <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-500">
+                                <i class="fa fa-user"></i>
+                            </span>
+                            <input type="text" id="username" class="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-lg shadow-sm input-focus transition-all" placeholder="请输入您的姓名">
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label for="password" class="block text-sm font-medium text-gray-700 mb-1">密码</label>
+                        <div class="relative">
+                            <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-500">
+                                <i class="fa fa-lock"></i>
+                            </span>
+                            <input type="password" id="password" class="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-lg shadow-sm input-focus transition-all" placeholder="请输入您的密码">
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-col sm:flex-row gap-3 mt-6">
+                        <button id="saveBtn" class="flex-1 bg-primary hover:bg-primary/90 text-white font-medium py-2 px-4 rounded-lg btn-hover flex items-center justify-center">
+                            <i class="fa fa-save mr-2"></i> 保存信息
+                        </button>
+                        <button id="loadBtn" class="flex-1 bg-secondary hover:bg-secondary/90 text-white font-medium py-2 px-4 rounded-lg btn-hover flex items-center justify-center">
+                            <i class="fa fa-download mr-2"></i> 载入Cookie
+                        </button>
+                        <button id="clearBtn" class="flex-1 bg-danger hover:bg-danger/90 text-white font-medium py-2 px-4 rounded-lg btn-hover flex items-center justify-center">
+                            <i class="fa fa-trash mr-2"></i> 清除Cookie
+                        </button>
+                    </div>
+                </div>
+                
+                <div id="message" class="mt-4 hidden transition-all duration-300">
+                    <div class="p-3 rounded-lg text-sm font-medium"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mt-12 bg-white rounded-xl shadow-lg p-6 max-w-3xl mx-auto">
+            <h3 class="text-lg font-bold text-gray-800 mb-4 flex items-center">
+                <i class="fa fa-info-circle text-primary mr-2"></i>
+                使用说明
+            </h3>
+            <ul class="space-y-2 text-gray-700">
+                <li class="flex items-start">
+                    <i class="fa fa-check-circle text-success mt-1 mr-2"></i>
+                    <span>在上方输入框中填写您的姓名和密码，然后点击"保存信息"按钮将数据保存到Cookie中</span>
+                </li>
+                <li class="flex items-start">
+                    <i class="fa fa-check-circle text-success mt-1 mr-2"></i>
+                    <span>刷新页面后，点击"载入Cookie"按钮可以恢复您之前保存的信息</span>
+                </li>
+                <li class="flex items-start">
+                    <i class="fa fa-check-circle text-success mt-1 mr-2"></i>
+                    <span>点击"清除Cookie"按钮可以删除已保存的Cookie数据</span>
+                </li>
+            </ul>
+        </div>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-6 mt-12">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-sm text-gray-400">© 2025 Cookie管理工具 | 使用原生JavaScript构建</p>
+        </div>
+    </footer>
+
+    <script>
+        // Cookie操作函数
+        function setCookie(name, value, days) {
+            let expires = "";
+            if (days) {
+                const date = new Date();
+                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                expires = "; expires=" + date.toUTCString();
+            }
+            document.cookie = name + "=" + (value || "") + expires + "; path=/";
+        }
+
+        function getCookie(name) {
+            const nameEQ = name + "=";
+            const ca = document.cookie.split(';');
+            for (let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+                if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+            }
+            return null;
+        }
+
+        function deleteCookie(name) {
+            document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        }
+
+        // DOM元素
+        const usernameInput = document.getElementById('username');
+        const passwordInput = document.getElementById('password');
+        const saveBtn = document.getElementById('saveBtn');
+        const loadBtn = document.getElementById('loadBtn');
+        const clearBtn = document.getElementById('clearBtn');
+        const message = document.getElementById('message');
+
+        // 显示消息提示
+        function showMessage(text, type = 'success') {
+            const messageBox = message.querySelector('div');
+            messageBox.textContent = text;
+            
+            // 设置消息类型样式
+            if (type === 'success') {
+                messageBox.className = 'p-3 rounded-lg text-sm font-medium bg-green-50 text-green-800 border border-green-200';
+                messageBox.innerHTML = `<i class="fa fa-check-circle mr-2"></i>${text}`;
+            } else if (type === 'error') {
+                messageBox.className = 'p-3 rounded-lg text-sm font-medium bg-red-50 text-red-800 border border-red-200';
+                messageBox.innerHTML = `<i class="fa fa-exclamation-circle mr-2"></i>${text}`;
+            } else if (type === 'info') {
+                messageBox.className = 'p-3 rounded-lg text-sm font-medium bg-blue-50 text-blue-800 border border-blue-200';
+                messageBox.innerHTML = `<i class="fa fa-info-circle mr-2"></i>${text}`;
+            }
+            
+            // 显示消息
+            message.classList.remove('hidden');
+            message.classList.add('opacity-0');
+            setTimeout(() => {
+                message.classList.remove('opacity-0');
+            }, 10);
+            
+            // 3秒后自动隐藏
+            setTimeout(() => {
+                message.classList.add('opacity-0');
+                setTimeout(() => {
+                    message.classList.add('hidden');
+                }, 300);
+            }, 3000);
+        }
+
+        // 事件监听器
+        saveBtn.addEventListener('click', () => {
+            const username = usernameInput.value.trim();
+            const password = passwordInput.value.trim();
+            
+            if (!username || !password) {
+                showMessage('姓名和密码不能为空', 'error');
+                return;
+            }
+            
+            // 保存到Cookie（有效期7天）
+            setCookie('username', username, 7);
+            setCookie('password', password, 7);
+            
+            showMessage('信息已成功保存到Cookie中');
+            
+            // 添加按钮动画效果
+            saveBtn.classList.add('bg-success');
+            saveBtn.innerHTML = '<i class="fa fa-check mr-2"></i> 已保存';
+            setTimeout(() => {
+                saveBtn.classList.remove('bg-success');
+                saveBtn.innerHTML = '<i class="fa fa-save mr-2"></i> 保存信息';
+            }, 1500);
+        });
+
+        loadBtn.addEventListener('click', () => {
+            const username = getCookie('username');
+            const password = getCookie('password');
+            
+            if (username && password) {
+                usernameInput.value = username;
+                passwordInput.value = password;
+                showMessage('已成功从Cookie加载信息');
+            } else {
+                showMessage('未找到保存的Cookie信息', 'error');
+            }
+        });
+
+        clearBtn.addEventListener('click', () => {
+            deleteCookie('username');
+            deleteCookie('password');
+            
+            usernameInput.value = '';
+            passwordInput.value = '';
+            
+            showMessage('Cookie信息已清除');
+            
+            // 添加按钮动画效果
+            clearBtn.classList.add('bg-gray-600');
+            clearBtn.innerHTML = '<i class="fa fa-check mr-2"></i> 已清除';
+            setTimeout(() => {
+                clearBtn.classList.remove('bg-gray-600');
+                clearBtn.innerHTML = '<i class="fa fa-trash mr-2"></i> 清除Cookie';
+            }, 1500);
+        });
+
+        // 页面加载时检查是否有Cookie
+        document.addEventListener('DOMContentLoaded', () => {
+            const username = getCookie('username');
+            const password = getCookie('password');
+            
+            if (username && password) {
+                showMessage('检测到已保存的Cookie信息，点击"载入Cookie"按钮加载', 'info');
+            }
+        });
+    </script>
+</body>
+</html>
+    

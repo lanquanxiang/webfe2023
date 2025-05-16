@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			function f1(){
+				alert("即将跳转到攀枝花学院")
+				location.href="https://www.pzhu.cn/"
+			}
+			function f2(){
+				let ans=confirm("是否要跳转？")
+				if(ans==true){
+					location.href="https://www.pzhu.cn/"
+				}
+			}
+			function f3(){
+				let ans=prompt("请输入网址:")
+				if(ans){
+					location.href=ans
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<button onclick="f1()">即将跳转</button>
+		<button onclick="f2()">是否跳转</button>
+		<button onclick="f3()">自定义跳转</button>
+	</body>
+</html>
