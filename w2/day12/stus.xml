@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<stus>
+	<stu sno="1001" name="张三"/>
+	<stu sno="1002" name="张四"/>
+	<stu sno="1003" name="张五"/>
+	<stu sno="1004" name="张六"/>
+	<stu sno="1005" name="张七"/>
+	<stu sno="1006" name="张八"/>
+</stus>

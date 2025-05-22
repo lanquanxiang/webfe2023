@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<colors>
+	<color>
+		<name>黄色</name>
+		<value>yellow</value>
+	</color>
+	<color>
+		<name>蓝色</name>
+		<value>blue</value>
+	</color>
+	<color>
+		<name>红色</name>
+		<value>red</value>
+	</color>
+	<color>
+		<name>灰色</name>
+		<value>gray</value>
+	</color>
+	<color>
+		<name>天蓝色</name>
+		<value>skyblue</value>
+	</color>
+</colors>
