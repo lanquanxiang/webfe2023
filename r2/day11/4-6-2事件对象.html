@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			function f(){
+				console.log(`你${event.type}了${event.target.innerHTML}`);
+			}
+			function f1(){
+				document.querySelector("div").textContent = `鼠标的坐标（${event.clientX},${event.clientY}）`
+			}
+		</script>
+	</head>
+	<body>
+		<button>按钮1</button>
+		<button>按钮2</button>
+		<button>按钮3</button>
+		<button>按钮4</button>
+		<button>按钮5</button>
+		<button>按钮6</button>
+		<button>按钮7</button>
+		<button>按钮8</button>
+		<button>按钮9</button>
+		<button>按钮10</button>
+		<div></div>
+		<script type="text/javascript">
+			let btns=document.querySelectorAll("button")
+			for (let i = 0; i <btns.length; i++) {
+				btns[i].addEventListener("click",f)
+				btns[i].addEventListener("mouseenter",f)
+				btns[i].addEventListener("mouseleave",f)
+			}
+			document.body.addEventListener("mousemove",f1)
+		</script>
+	</body>
+</html>

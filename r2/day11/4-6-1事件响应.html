@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			function f0(){
+				alert("这是额外执行的函数")
+			}
+			function f1(){
+				alert("按钮1被点击了")
+			}
+			function f2(){
+				alert("按钮2被点击了")
+			}
+			function f3(){
+				alert("按钮3被点击了")
+			}
+			function f4(){
+				alert("按钮3不能被点击了")
+				let b3 = document.getElementsByClassName("b3")[0]
+				b3.removeEventListener("click",f3)
+			}
+		</script>
+	</head>
+	<body onclick="f1()">
+		<button onclick="f1(),f0()">按钮1</button>
+		<button id="b2">按钮2</button>
+		<button class="b3">按钮3</button>
+		<button id="b4">按钮4</button>
+		<script type="text/javascript">
+			let b2 = document.getElementById("b2")
+			b2.onclick = f2
+			
+			let b3 = document.getElementsByClassName("b3")[0]
+			b3.addEventListener("click",f3)
+			b3.addEventListener("click",f0)
+			
+			let b4 = document.getElementById("b4")
+			b4.onclick = f4
+			
+		</script>
+	</body>
+</html>
