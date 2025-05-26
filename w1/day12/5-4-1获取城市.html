@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			let provinces = [] //表示所有的省份（将JSON文件获取到之后转换为这个数组）
+			function init() {
+				let xhr = new XMLHttpRequest()
+				xhr.open("GET", "city.json", false)
+				xhr.send()
+				let data = xhr.responseText; // 以纯文本的方式接收JSON串
+				//provinces = eval("(" + data + ")"); //将JSON串转换为对象（就是所有的省份数组）
+				provinces = JSON.parse(data)
+				//将所有省的名字写到省的下拉列表中
+				for (let i = 0; i < provinces.length; i++) {
+					//将第i个省的名字，写入省下拉列表的第i项
+					pro.options[i] = new Option(provinces[i].name)
+				}
+				//将第一个省（四川）的所有市写入市的下拉列表	
+				for (let i = 0; i < provinces[0].cities.length; i++) {
+					//将四川的第i个城市，写入城市下拉列表的第i个选项中
+					cit.options[i] = new Option(provinces[0].cities[i])
+				}
+			}
+			function changePro(){
+				let k = pro.selectedIndex //用户选择了第i个省
+				//将第k个省的所有市写入市的下拉列表
+				cit.length = 0 //清空原来的城市信息
+				for (let i = 0; i < provinces[k].cities.length; i++) {
+					//将第k个省的第i个城市，写入城市下拉列表的第i个选项中
+					cit.options[i] = new Option(provinces[k].cities[i])
+				}
+			}
+		</script>
+	</head>
+	<body onload="init()">
+		请选择：
+		<select id="pro" onchange="changePro()"></select>省
+		<select id="cit"></select>市
+
+		<script type="text/javascript">
+			const pro = document.getElementById("pro") //表示省的下拉列表
+			const cit = document.getElementById("cit") //表示市的下拉列表
+		</script>
+	</body>
+</html>

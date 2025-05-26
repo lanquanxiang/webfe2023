@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			let stus=[]  //初始化一个学生数组，init()的目标
+			function init(){
+				let xhr = new XMLHttpRequest()
+				xhr.open("GET","stu.xml",false)
+				xhr.send()
+				let data = xhr.responseXML //以xml数据格式来接收服务器的数据		
+				//stus = data.querySelectorAll("stus>stu")
+				//stus = data.getElementsByTagName("stu")
+				stus = data.querySelectorAll("stu")
+				document.getElementById("stuNO").value = stus[0].getAttribute("sno")
+				document.getElementById("stuName").value = stus[0].getAttribute("sname")
+			}
+			
+			let i = 0 //默认是第一个学生，下标为0
+			function next(){
+				i++
+				if(i==stus.length){
+					i=0;
+				}
+				document.getElementById("stuNO").value = stus[i].getAttribute("sno")
+				document.getElementById("stuName").value = stus[i].getAttribute("sname")
+			}
+		</script>
+	</head>
+	<body onload="init()">
+		学号：<input type="text" id="stuNO" /><br>
+		姓名：<input type="text" id="stuName" />
+		<button type="button" onclick="next()">下一个</button>
+	</body>
+</html>

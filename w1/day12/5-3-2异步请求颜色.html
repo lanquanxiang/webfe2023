@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			let colors = [] //表示xml中的所有颜色，这是一个颜色数组
+			function init(){
+				let xhr = new XMLHttpRequest()
+				xhr.open("GET","color.xml",true)
+				xhr.send()
+				xhr.onreadystatechange=function(){
+					if(xhr.status==200 && xhr.readyState==4){
+						let data = xhr.responseXML
+						colors = data.querySelectorAll("color") //在data文档中，寻找所有的color标签
+						//获取每个颜色的名字，然后写入下拉列表的选项中
+						let s = document.querySelector("select") //获得网页中的下拉列表
+						for (let i = 0; i < colors.length; i++) {
+							let c = colors[i].querySelector("name").textContent //获取第i个颜色的名字
+							//将第i个颜色的名字，加到第i个选项中
+							s.options[i] = new Option(c) 
+						}
+						//将第一个颜色的值，设置给网页背景
+						let v = colors[0].querySelector("value").textContent
+						document.body.setAttribute("style","background-color: "+v+";")
+					}
+				}
+			}
+			function changeColor(){
+				//获得下拉列表中选择的第几个选项
+				let s = document.querySelector("select") 
+				let i = s.selectedIndex
+				//将第一个颜色的值，设置给网页背景
+				let v = colors[i].querySelector("value").textContent
+				document.body.setAttribute("style","background-color: "+v+";")
+			}
+		</script>
+	</head>
+	<body onload="init()">
+		请选择网页背景色：<select onchange="changeColor()"></select>
+	</body>
+</html>
