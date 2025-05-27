@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+		<script type="text/javascript">
+			$(function(){ //文档就绪之后自动运行函数，在这里面写：数据初始化、事件绑定
+				$("button").eq(0).bind("click",fun)
+				$("button").eq(1).one("click",function(){
+					console.log("一次性事件,这句话只会运行一次");
+					$("button").eq(0).unbind("click",fun)
+				})
+			})
+			function fun(){
+				console.log("你点击了按钮");
+			}
+		</script>
+	</head>
+	<body>
+		<button>绑定事件</button>
+		<button>解除绑定</button>
+	</body>
+</html>

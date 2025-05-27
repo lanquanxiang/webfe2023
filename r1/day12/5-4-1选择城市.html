@@ -8,18 +8,34 @@
 		请选择：<select id="pro"></select>省<select id="city"></select>市
 		
 		<script type="text/javascript">
-			let provinces = [];
-			let pro = document.getElementById("pro")
-			let city = document.getElementById("city")
+			let provinces = [];  //表示的是数据，所有的省（数组）
+			let pro = document.getElementById("pro") //表示页面上的省下拉列表
+			let city = document.getElementById("city") //表示页面上的市下拉列表
+			
 			function init(){
 				let xhr = new XMLHttpRequest();
 				xhr.open("GET","cities.json",false);
 				xhr.send();
-				var data = xhr.responseText;
+				var data = xhr.responseText; //以纯文本的方式来接收服务器的数据 JSON串
+				
 				provinces = JSON.parse(data) //将JSON文件中的文本数据转换为对象（省份的数组）
 				
 				for (var i = 0; i < provinces.length; i++) {
-					pro.options[i] = new Option(provinces[i].name)  //将第i个省份的名字写入第一个下拉列表中					
+					 //将第i个省份的名字写入第一个下拉列表的第i个选项中
+					pro.options[i] = new Option(provinces[i].name) 					
+				}
+				//将第一个省的所有市加载到市的下拉列表中
+				for (let i = 0; i < provinces[0].city.length; i++) {
+					city.options[i] = new Option(provinces[0].city[i]) 
+				}
+			}
+			
+			pro.onchange = function(){
+				let n = pro.selectedIndex //表示用户选择了第nn个选项，等同于选中了第n个省
+				//更新市的下拉列表：更新为第n个省的城市
+				city.length = 0 //清空原来的城市数据
+				for (let i = 0; i < provinces[n].city.length; i++) {
+					city.options[i] = new Option(provinces[n].city[i]) 
 				}
 			}
 		</script>

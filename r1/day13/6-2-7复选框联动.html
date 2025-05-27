@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				$("#autoLogin").change(function(){
+					if($("#autoLogin").is(":checked")){//判断自动登录复选框是否被选中  is（）选择所有被选择的元素
+						$("#savePassword").prop("checked",true)//将复选框的选中状态设置为选中
+					}
+				})
+				$("#savePassword").change(function(){
+					if(!$("#savePassword").is(":checked")){//判断保存密码复选框是否被取消 is（）选择所有被选择的元素
+						$("#autoLogin").prop("checked",false)//将复选框的选中状态设置为取消
+					}
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<h1>用户登录</h1>
+		<input type="checkbox" id="savePassword"  />保存密码
+		<input type="checkbox" id="autoLogin" />自动登录
+	</body>
+</html>

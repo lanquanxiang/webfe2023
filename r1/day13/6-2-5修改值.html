@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				$("input").eq(1).change(function(){
+					let n1 = $(":text").eq(0).val()
+					let n2 = $(":text").eq(1).val()
+					let res = n1/1+n2/1
+					$(":disabled").val(res.toFixed(15)-0)
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<input type="text" placeholder="第一个数" size="10"/>+
+		<input type="text" placeholder="第二个数" size="10"/>=
+		<input type="text" placeholder="计算结果" size="10" disabled="disabled"/>
+	</body>
+</html>
