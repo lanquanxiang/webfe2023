@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<!-- <script src="../../js/jquery-3.7.1.js" type="text/javascript" charset="utf-8"></script> -->
+		<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				console.log($("div").text());  //jQuery对象集合，默认操作集合中的每一个
+				//位置选择器
+				console.log($("div:first").text()); 
+				console.log($("div:last").text()); 
+				console.log($("div:eq(0)").text()); 
+				console.log($("div:odd").text()); //输出索引值为奇数（1,3）的元素（第2、4个div）
+				console.log($("div:gt(1)").text()); 
+				
+				//普通选择器输出div的文本
+				console.log($("#d2").html());  //id选择器
+				console.log($(".d3").html());
+				//jQuery的索引
+				console.log($("div").eq(3).html()); //获取所有元素之后，再筛选元素
+				console.log($("div").get(3).innerHTML); //DOM元素
+				console.log($("div")[3].innerHTML); //DOM元素
+				//DOM元素与jQuery元素相互转换
+				//  $(DOM元素)
+				// jQuery元素.get(0)  jQuery元素[0]
+				console.log($($($("div")[3])[0]).html());
+			})
+		</script>
+	</head>
+	<body>
+		<div>1</div>
+		<div id="d2">2</div>
+		<div class="d3">3</div>
+		<div>4</div>		
+	</body>
+</html>

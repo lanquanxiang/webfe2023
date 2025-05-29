@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				$("#c2").change(function(){
+					if($("#c2").is(":checked"))//检查c2是否被选中
+					{
+						$("#c1").prop("checked",true)//将c1的状态改为选中	
+					}
+				})
+				 $("#c1").change(function(){
+				 	if($("#c1").not(":checked"))//检查c2是否被选中
+				 	{
+				 		$("#c2").prop("checked",false)//将c1的状态改为选中	
+				 	}
+				 })
+			})
+		</script>
+	</head>
+	<body>
+		<h1>用户登录</h1>
+		<input type="checkbox" id="c1"/>保存密码
+		<input type="checkbox" id="c2"/>自动登录
+	</body>
+</html>

@@ -11,20 +11,32 @@
 				xhr.send()
 				
 				let data = xhr.responseText//以纯文本的方式来接受
-				pros=JSON.parse(data)
+				pros=JSON.parse(data) //data数据必须是严格的JSON格式，不能有特殊字符和注释
 				let p=document.getElementById("p")  //p表示页面上的省的下拉列表
 				let c=document.getElementById("c")  //c表示页面上的市的下拉列表
 				for (let i = 0; i <pros.length; i++) {
 						p.options[i]=new Option(pros[i].name)
 				}
+				//将四川（第1个省）的市加到下拉列表中
 				for (let i = 0; i < pros[0].cities.length; i++) {
 					    c.options[i]=new Option(pros[0].cities[i])
 				}
 			}
+			function change(){
+				//先获得用户选择的第n个省 == 用户选择的第n个选项
+				let p=document.getElementById("p")  //p表示页面上的省的下拉列表
+				let c=document.getElementById("c")  //c表示页面上的市的下拉列表
+				c.length = 0  //清空城市的下拉选项
+				let n = p.selectedIndex  //这个属性表示用户选择的选项索引值
+				for (let i = 0; i < pros[n].cities.length; i++) {
+					    c.options[i]=new Option(pros[n].cities[i])
+				}
+				
+			}
 		</script>
 	</head>
 	<body onload="init()">
-		请选择：<select id="p"></select>省 <select id="c"></select>市
+		请选择：<select id="p" onchange="change()"></select>省 <select id="c"></select>市
 		
 	</body>
 </html>

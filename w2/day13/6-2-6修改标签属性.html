@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				let state=false
+				$("img").on("click",function(){
+					if(state){
+						$("img").attr("src","../../src/off.png")
+						state=false
+					}else { 
+						$("img").attr("src","../../src/on.png")
+						state=true
+					}
+				})
+				/**
+				 * 1. 设置状态，根据状态来修改
+				 * 2. 设置点击次数，根据奇偶次数来修改
+				 * 3. 读取图像的地址，判断是都是开关灯，再修改
+				 */
+				
+			})
+		</script>
+	</head>
+	<body>
+		<img src="../../src/off.png"  width="200px">
+	</body>
+</html>
