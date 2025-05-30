@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			let provinces=[] //初始化所有的省份信息；如果JSON是{}的，初始化为{}
+			function init(){
+				//1.创建核心对象
+				let xhr = new XMLHttpRequest()
+				//2. 创建请求
+				xhr.open("GET","city.json",false) //false表示同步
+				//3. 发送请求
+				xhr.send()
+				//4. 接收、解析、显示数据
+				let data = xhr.responseText  //以文本的方式接收JSON，变成一个JSON的串
+				provinces = JSON.parse(data) //将JSON串转换为数组
+				//将所有省份的名字添加到s1的下拉列表中
+				for (let i = 0; i < provinces.length; i++) {
+					//将第i个省的名字添加到s1的第i个选项中
+					s1.options[i] = new Option(provinces[i].name)
+				}
+				//将四川的城市加载到s2的下拉列表中
+				for (let i = 0; i < provinces[0].cities.length; i++) {
+					//将四川第i个城市的名字添加到s2的第i个选项中
+					s2.options[i] = new Option(provinces[0].cities[i])
+				}
+				
+			}
+			function change(){
+				let index = s1.selectedIndex //用户选择的省份
+				s2.length = 0 //清空城市的数据
+				for (let i = 0; i < provinces[index].cities.length; i++) {
+					//将index的省份第i个城市的名字添加到s2的第i个选项中
+					s2.options[i] = new Option(provinces[index].cities[i])
+				}
+			}
+		</script>
+	</head>
+	<body onload="init()">
+		请选择：<select id="s1" onchange="change()"></select>省
+		<select id="s2"></select>市
+		
+		<script type="text/javascript">
+			const s1 = document.querySelector("#s1")
+			const s2 = document.querySelector("#s2")
+		</script>
+	</body>
+</html>

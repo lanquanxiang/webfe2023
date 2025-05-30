@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<colors>
+	<color>
+		<name>红色</name>
+		<value>#FF0000</value>
+	</color>
+	<color>
+		<name>黑色</name>
+		<value>#000000</value>
+	</color>
+	<color>
+		<name>蓝色</name>
+		<value>#0000FF</value>
+	</color>
+	<color>
+		<name>灰色</name>
+		<value>grey</value>
+	</color>
+	<color>
+		<name>HBuilder</name>
+		<value>rgb(255, 250, 232)</value>
+	</color>
+</colors>

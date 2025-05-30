@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			/**
+			 * 方法1：只初始化颜色数组，如果需要名字和值，再到数组中检索对应的标签文本
+			 * 方法2：初始化两个数组，分别是颜色的名字和颜色的值，如果需要直接从数组中取
+			 */
+			let colorsName = [] //表示所有的颜色的名字
+			let colorsValue = [] //表示所有的颜色的值
+			function init(){
+				//1.创建核心对象
+				let xhr = new XMLHttpRequest()
+				//2. 创建请求
+				xhr.open("GET","color.xml",true) //true表示异步
+				//3. 发送请求
+				xhr.send()
+				//4. 接收、解析、显示数据
+				xhr.onreadystatechange = function(){
+					if(xhr.readyState==4 && xhr.status==200){
+						let data = xhr.responseXML
+						colorsName = data.querySelectorAll("color>name")
+						colorsValue = data.querySelectorAll("color>value")
+						//将颜色的名字动态加载到下拉列表中
+						let s = document.querySelector("select")
+						for (let i = 0; i < colorsName.length; i++) {
+							//第i个颜色的名字-->下拉列表的第i个选项中
+							s.options[i] = new Option(colorsName[i].innerHTML)
+						}
+						console.log(colorsValue[0]);
+						document.body.setAttribute("style","background-color: "+colorsValue[0].innerHTML+";")
+						
+					}
+				}
+			}
+			function change(){
+				//先知道用户选择的是哪一个颜色
+				let s = document.querySelector("select")
+				let index = s.selectedIndex  //保存了用户选择的索引值
+				document.body.setAttribute("style","background-color: "+colorsValue[index].innerHTML+";")
+			}
+		</script>
+	</head>
+	<body onload="init()">
+		请选择网页背景色：<select onchange="change()"></select>
+	</body>
+</html>

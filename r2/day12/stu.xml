@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<students>
+	<student sno="1001" sname="张三"></student>
+	<student sno="1002" sname="张四"/>
+	<student sno="1003" sname="张五"/>
+	<student sno="1004" sname="张留"/>
+	<student sno="1005" sname="张起"/>
+	<student sno="1006" sname="张吧"/>
+	<student sno="1007" sname="张就"/>
+</students>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			let stus =[]   //初始化一个变量，保存所有的学生信息
+			function loadStus(){
+				//1.创建核心对象
+				let xhr = new XMLHttpRequest()
+				//2. 创建请求
+				xhr.open("GET","stu.xml",false) //false表示同步
+				//3. 发送请求
+				xhr.send()
+				//4. 接收、解析、显示数据
+				let data = xhr.responseXML //以XML来接收数据
+				stus = data.getElementsByTagName("student")
+				//stus = data.querySelectorAll("student")
+				
+				document.querySelector(".s1").value = stus[0].getAttribute("sno")
+				document.getElementsByClassName("s2")[0].value = stus[0].getAttribute("sname")
+			}
+			let index = 0;
+			function next(){
+				index++
+				document.querySelector(".s1").value = stus[index%stus.length].getAttribute("sno")
+				document.getElementsByClassName("s2")[0].value = stus[index%stus.length].getAttribute("sname")
+			}
+		</script>
+	</head>
+	<body onload="loadStus()">
+		学号：<input type="text" class="s1"/><br>
+		姓名：<input type="text" class="s2"/>
+		<button type="button" onclick="next()">下一个</button>
+	</body>
+</html>
