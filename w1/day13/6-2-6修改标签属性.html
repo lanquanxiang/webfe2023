@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				let flag=false
+				$('img').bind('click',function(){
+					if(flag){
+						$('img').attr('src','../../src/off.png')
+						flag=false
+					}else{
+						$('img').attr('src','../../src/on.png')
+						flag=true
+					}
+				})
+				
+			})			
+		</script>
+	</head>
+	<body>
+		<img src="../../src/off.png" width=200px>
+	</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				//在ready中进行数据初始化，或事件绑定
+				$('#c2').change(function(){
+					// if($('#c2').is(":checked")){
+					// 	$('#c1').prop('checked',true)
+					// }
+					if($('#c2').prop("checked")){
+						$('#c1').prop('checked',true)
+					}
+				})
+				$('#c1').change(function(){
+					// if($('#c1').not(":checked")){
+					// 	$('#c2').prop('checked',false)
+					// }
+					if($('#c1').prop("checked")==false){
+						$('#c2').prop('checked',false)
+					}
+				})
+			})			
+		</script>
+	</head>
+	<body>
+		<h3>用户登录</h3>
+		<input type="checkbox"  id="c1"  />保存密码
+		<input type="checkbox"  id="c2"  />自动登录
+		
+	</body>
+</html>

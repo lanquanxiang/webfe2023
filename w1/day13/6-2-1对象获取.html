@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+	</head>
+	<body>
+		<div>1</div>
+		<div id="d2">2</div>
+		<input type="text" value="123456" />
+		<div class="mui-input-row mui-checkbox ">
+			<label>Checkbox</label>
+			<input name="Checkbox" type="checkbox" checked>
+		</div>
+		
+		<div class="d3">3</div>
+		<div>4</div>
+		
+		<script type="text/javascript">
+			console.log($("div:first").text());
+			console.log($("div").text()); //1234  在集合上调用方法，jQuery自动对每个元素使用方法，不需要自己写循环
+			
+			console.log($("#d2").text());
+			console.log($(".d3").text());
+			
+			console.log($("div:last").text());
+			console.log($("div").eq(3).text()); //索引方法
+			console.log($("div").get(3).innerHTML);   //使用DOM对象的属性
+		</script>
+		
+	</body>
+</html>

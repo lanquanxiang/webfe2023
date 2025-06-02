@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.black{
+				background-color: #000000;
+				color: white;
+			}
+		</style>
+		<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				//在ready中进行数据初始化，或事件绑定
+				let isBlack=false
+				$("button").bind("click",function(){
+					if(isBlack){
+						$(document.body).removeClass("black")
+						$("button").removeClass("black")
+						isBlack=false
+						$("button").text("黑暗模式")
+					}
+					else{
+						$(document.body).addClass("black")
+						$("button").addClass("black")
+						isBlack=true
+						$("button").text("明亮模式")
+					}
+				})
+			
+			})			
+		</script>
+	</head>
+	<body>
+		这是网页内容
+		<button style="position: fixed;right: 20px;">黑暗模式</button>
+	</body>
+</html>
