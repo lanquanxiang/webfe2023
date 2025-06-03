@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				$(".add").click(function(){
+					let div=$("<div></div>")
+					let file=$("<input type='file'>")
+					let del=$('<button type="button" class="del">删除</button>')
+					$(document).on("click",".del",fun)
+					div.append(file)
+					div.append(del)
+					$(".con").append(div)
+				})
+			})
+			function fun(){
+				$(event.target.parentNode).remove()
+			}
+		</script>
+	</head>
+	<body>
+		选中你要上传的文件；
+		<div>
+			<input type="file">
+			<button type="button" class="add">增加</button>
+		</div>
+		<div class="con">
+			
+		</div>
+		
+	</body>
+</html>
