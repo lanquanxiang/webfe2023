@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+		<script type="text/javascript">
+			$(function(){//ready函数网页加载完毕后执行
+				$("button").click(function(){
+					$("div").eq(0).text("ok");
+					$("#txt").text("okk");
+					$(".txt").html("<b>okkk</b>"); //支持带html标签的文本修改
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<button type="button">改变文本</button>
+		<div>文本</div>
+		<div id="txt">文本1</div>
+		<div class="txt">文本2</div>
+		<div class="txt">文本2</div>
+		<div class="txt">文本2</div>
+		
+	</body>
+</html>

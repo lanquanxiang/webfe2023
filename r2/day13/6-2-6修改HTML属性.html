@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+		<script type="text/javascript">
+			$(function(){//ready函数网页加载完毕后执行
+				let n=0  //初始化鼠标点击的次数
+				$("img").on("click",function(){
+					n++
+					if(n%2 == 1){  //如果是奇数次，则会开灯
+						$("img").attr("src","../../src/on.png")
+					}else{
+						$("img").attr("src","../../src/off.png")
+					}
+				})
+				
+				
+			})
+		</script>
+	</head>
+	<body>
+		<img src="../../src/off.png"  width="200px">
+	</body>
+</html>
