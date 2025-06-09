@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				//在ready中进行数据初始化，或事件绑定
+				$(".btn1").click(function(){
+					let div=$("<div></div>")
+					let file=$('<input type="file"/>')
+					let btn2=$('<button type="button" class="btn2" onclick="del()">删除</button>')
+					//$(document).on("click",".btn2",del) 
+					div.append(file)
+					div.append(btn2)
+					$(".con").append(div)
+				})
+			
+			})	
+		function del(){
+			$(event.target.parentNode).remove()
+		}
+		</script>
+	</head>
+	<body>
+		选择你要上传的文件：
+		<div>
+			<input type="file"/>
+			<button type="button" class="btn1">增加</button>
+		</div>
+		<div class="con">
+			<!-- 在此处添加新的控件 -->
+		</div>
+	</body>
+</html>
